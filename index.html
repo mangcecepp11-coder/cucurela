@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukmu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d81b60;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            position: relative;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        #yes-btn {
+            background-color: #e91e63;
+            color: white;
+        }
+        #yes-btn:hover {
+            background-color: #c2185b;
+        }
+        #no-btn {
+            background-color: #9e9e9e;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mau jadi pacar aku gak?</h1>
+        <div class="buttons">
+            <button id="yes-btn" onclick="alert('Yay!')">Iya</button>
+            <button id="no-btn">Tidak</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('no-btn');
+
+        noBtn.addEventListener('mouseover', () => {
+            const container = document.querySelector('.buttons');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const randomX = Math.floor(Math.random() * (containerRect.width - btnRect.width));
+            const randomY = Math.floor(Math.random() * (containerRect.height - btnRect.height));
+
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
+
